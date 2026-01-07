@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book A Call | View</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #007AFF; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #ffffff; line-height: 1.6; overflow-x: hidden; }
+        
+        /* Navigation - Consistant with main site */
+        nav { 
+            padding: 1.5rem 10%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            width: 100%; 
+            z-index: 100; 
+            background: rgba(5,5,5,0.8); 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+        .logo-icon { width: 30px; height: 30px; } 
+        .logo-text { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
+
+        .booking-container {
+            padding: 180px 0 80px; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .booking-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .highlight { color: var(--accent); }
+
+        /* --- THE AGGRESSIVE OUTLINE FIX --- */
+        
+        /* 1. Target the widget, all children, and the iframe directly */
+        .calendly-inline-widget, 
+        .calendly-inline-widget *, 
+        .calendly-inline-widget iframe {
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            background-color: var(--bg) !important;
+            color-scheme: dark !important; /* Force browser to render dark components */
+            -webkit-box-shadow: none !important;
+        }
+
+        /* 2. Overwrite Calendly's internal CSS variables */
+        .calendly-inline-widget {
+            --colorBackgroundSecondary: #050505 !important;
+            --colorBackgroundTertiary: #050505 !important;
+            --container-background-color: #050505 !important;
+        }
+
+        /* 3. Ensure the wrapper doesn't have a border/shadow */
+        .widget-wrap {
+            width: 100%;
+            max-width: 1200px;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .calendly-inline-widget {
+            width: 100% !important;
+            height: 1000px !important;
+        }
+
+        footer { text-align: center; padding: 60px; color: #888; font-size: 0.8rem; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 50C10 50 25 20 50 20C75 20 90 50 90 50C90 50 75 80 50 80C25 80 10 50 10 50Z" stroke="white" stroke-width="8"/>
+                <circle cx="50" cy="50" r="15" fill="white"/>
+            </svg>
+            <div class="logo-text">View</div>
+        </a>
+    </nav>
+
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1>BOOK YOUR <span class="highlight">CALL.</span></h1>
+        </div>
+
+        <div class="widget-wrap">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/thesmallthings31/welcome-meeting?hide_gdpr_banner=1&background_color=050505&text_color=ffffff&primary_color=007aff" style="min-width:320px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+
+    <footer>
+        <p>VIEW &copy; 2026. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
