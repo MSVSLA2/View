@@ -115,6 +115,29 @@
         .cs-after .cs-tag { background: var(--accent); }
         .testimonial-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+        /* --- UPDATED GALLERY STYLES FOR PERFECT CENTERING --- */
+        .testimonial-gallery {
+            display: flex; /* Changed to Flexbox for better centering control */
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            justify-content: center; /* Forces items to center horizontally */
+            gap: 20px;
+            margin-top: 60px;
+            width: 100%;
+        }
+        .gallery-item {
+            /* Flex shorthand: grow, shrink, basis. 
+               Sets a base width of 280px but allows slight growing/shrinking to fit nicely. */
+            flex: 1 1 280px; 
+            max-width: 320px; /* Prevents them from getting too huge on wide screens */
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            transition: 0.3s ease;
+        }
+        .gallery-item:hover { border-color: var(--accent); }
+
         /* How It Works Specific Styles */
         .guarantee-block {
             border-left: 3px solid var(--accent);
@@ -130,6 +153,8 @@
             .grid { grid-template-columns: 1fr; } 
             .cs-card { max-width: 100%; width: 280px; }
             nav { padding: 1rem 5%; }
+            /* On mobile, flex behaves nicely, just ensure they don't get too small */
+            .gallery-item { min-width: 240px; } 
         }
     </style>
 </head>
@@ -243,6 +268,16 @@
                 <span class="cs-tag">AFTER</span>
                 <img src="images/4.png" alt="After View Stats" class="testimonial-img">
             </div>
+        </div>
+
+        <div class="testimonial-gallery">
+            <div class="gallery-item"><img src="images/Untitled design (6).png" alt="Testimonial Proof" class="testimonial-img"></div>
+            <div class="gallery-item"><img src="images/Untitled design (7).png" alt="Testimonial Proof" class="testimonial-img"></div>
+            <div class="gallery-item"><img src="images/Untitled design (8).png" alt="Testimonial Proof" class="testimonial-img"></div>
+            <div class="gallery-item"><img src="images/Untitled design (9).png" alt="Testimonial Proof" class="testimonial-img"></div>
+            <div class="gallery-item"><img src="images/Untitled design (10).png" alt="Testimonial Proof" class="testimonial-img"></div>
+            <div class="gallery-item"><img src="images/Untitled design (11).png" alt="Testimonial Proof" class="testimonial-img"></div>
+            <div class="gallery-item"><img src="images/Untitled design (12).png" alt="Testimonial Proof" class="testimonial-img"></div>
         </div>
 
         <div style="text-align: center; margin-top: 50px;">
